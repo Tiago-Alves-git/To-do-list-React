@@ -25,7 +25,7 @@ const NewTasks = async (TaskBody) => {
   }
 };
 
-const UpdateTasks = async (NewTask) => {
+const UpdateTasks = async (NewTask, value) => {
   const { row } = NewTask;  
   const putData = {
     TaskId: row.taskId,
@@ -33,11 +33,8 @@ const UpdateTasks = async (NewTask) => {
     Description: row.description,
     IsCompleted: row.isCompleted
   };
-
-  // Assuming NewTask.id is the task ID
+  console.log(putData);
   const url = `http://localhost:5293/api/Tasks/`;
-
-  // Exemplo de solicitação PUT
   try {
     const response = await axios.put(url, putData);
     return response.data;

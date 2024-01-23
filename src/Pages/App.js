@@ -28,15 +28,16 @@ function App() {
     fetchData();
   },[]);
 
-  const updateTaskInDatabase = async (updatedTask) => {
-    console.log(updatedTask);
+  const updateTaskInDatabase = async (updatedTask, params) => {
+    console.log(updatedTask, "+ ", params);
+    const { value } = params;
     // Call your UpdateTasks function or the relevant service function
-    await UpdateTasks(updatedTask);
+    await UpdateTasks(updatedTask, value);
     // Now update the state to trigger a re-render
     const updatedTasks = tasks.map((task) =>
-      task.id === updatedTask.id ? updatedTask : task
-    );
-    setTasks(updatedTasks);
+    task.taskId === updatedTask.row.taskId ? updatedTask.row : task
+  );
+  setTasks(updatedTasks);
   };
   
   return (
