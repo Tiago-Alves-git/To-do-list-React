@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import AddTaskBtn from '../Components/AddTaskBtn';
-// import Table from '../Components/Table';
 import '../Style/App.css';
 import { GetTasks, UpdateTasks } from '../Service/Tasks';
 import AddTaskForm from '../Components/AddTaskForm';
