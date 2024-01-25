@@ -12,7 +12,7 @@ Uma tabela interativa é usada para exibir e gerenciar as tarefas. A tabela ofer
 
 ### Demonstração
 
-![Tabela de Tarefas](link-da-sua-imagem-ou-gif-da-tabela)
+![Tabela de Tarefas](https://imgur.com/gallery/hPL3P5X)
 
 ## Dependências
 
@@ -39,4 +39,4 @@ O aplicativo é simples e funcional, permitindo personalizações conforme neces
 
 ## Vídeo de Demonstração
 
-[Link para o Vídeo de Demonstração](link-do-seu-video)
+[Link para o Vídeo de Demonstração](https://imgur.com/gallery/hPL3P5X)
