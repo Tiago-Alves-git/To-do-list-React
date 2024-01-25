@@ -18,22 +18,20 @@ const NewTasks = async (TaskBody) => {
     }
     try {
     const response = await axios.post('http://localhost:5293/api/Tasks', postData);
-    return response.data;
+    return response;
   } catch (error) {
     console.log('Erro de criação', error);
-    return null;
+    return error;
   }
 };
 
-const UpdateTasks = async (NewTask, value) => {
-  const { row } = NewTask;  
+const UpdateTasks = async (NewTask) => {
   const putData = {
-    TaskId: row.taskId,
-    Title: row.title,
-    Description: row.description,
-    IsCompleted: row.isCompleted
+    TaskId: NewTask.taskId,
+    Title: NewTask.title,
+    Description: NewTask.description,
+    IsCompleted: NewTask.isCompleted
   };
-  console.log(putData);
   const url = `http://localhost:5293/api/Tasks/`;
   try {
     const response = await axios.put(url, putData);
@@ -44,9 +42,21 @@ const UpdateTasks = async (NewTask, value) => {
   }
 };
 
+const DeleteTask = async (id) => {
+  const url = `http://localhost:5293/api/Tasks/${id}`;
+  try {
+    const response = await axios.delete(url);
+    return response.data;
+  } catch (error) {
+    console.log('Erro na solicitação:', error);
+    return null;
+  }
+}
+
 
 export {
   GetTasks,
   NewTasks,
-  UpdateTasks
+  UpdateTasks,
+  DeleteTask
 }

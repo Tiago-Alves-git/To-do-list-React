@@ -1,9 +1,9 @@
 import React from 'react';
 import '../Style/AddTaskForm.css';
 import { Box, Button, Modal, TextField } from '@mui/material';
-import { NewTasks } from '../Service/Tasks';
+import { GetTasks, NewTasks } from '../Service/Tasks';
 
-function AddTaskForm({ Show, setNewTask, newTask, SetShow }) {
+function AddTaskForm({ Show, setNewTask, newTask, SetShow, setTasks }) {
   if (!Show) {
     return null;
   }
@@ -23,10 +23,9 @@ function AddTaskForm({ Show, setNewTask, newTask, SetShow }) {
       Description: newTask.description,
       IsComplete: false
     }
-    
-    const response = await NewTasks(body);
-    
-    console.log(response);
+    await NewTasks(body);
+    const response = await GetTasks(); 
+    setTasks(response);
     SetShow(!Show);
   };
 
